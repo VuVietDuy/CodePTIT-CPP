@@ -9,21 +9,22 @@ void testCase() {
         cin >> a[i];
     
     int i = n;
-    while(i >= 1 && a[i] <= n - 1) {
+    while(i >= 1 && a[i] > a[i - 1]) {
         i--;
     }
     if(i == 0) {
-        for(int i = n; i >= 1; i++)
-            a[i] = i;
-            
+        for (int j = 1; j <= n; j++) {
+            a[j] = n - j + 1;
+        }
     } else {
-        a[i]++;
-        for(int j = i + 1; j <= n; j++)
-            a[j] = 1;
+        i--;
+        swap(a[i], a[n]);
+        sort(a + i + 1, a + n);
     }
-    for (int i = 1; i <= n; i++) {
-        cout << a[i] << " ";
+    for (int j = 1; j <= n; j++) {
+        cout << a[j] << " ";
     }
+    cout << endl;
 }
 
 int main() {

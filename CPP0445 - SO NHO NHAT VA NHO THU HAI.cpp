@@ -4,18 +4,26 @@ using namespace std;
 void testCase() {
     int n;
     cin >> n;
-    int fi = INT_MAX, se = INT_MAX;
+    long fi = LONG_MAX, se = LONG_MAX;
+    bool ok = false;
     for(int i = 0; i < n; i++) {
-        int k;
+        long k;
         cin >> k;
         if(k < fi) {
-            se = fi;
+            if(fi < se) {
+                se = fi;
+                ok = true;
+            }
             fi = k;
         }
+        if(k < se && k > fi) {
+            se = k;
+            ok = true;
+        }
     }
-    if(fi == se) 
-        cout << fi << se << endl;
-    else   
+    if(ok) 
+        cout << fi << " " << se << endl;
+    else 
         cout << -1 << endl;
 }
 

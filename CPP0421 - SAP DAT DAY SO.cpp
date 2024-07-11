@@ -1,23 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+typedef long long ll;
+
 int main() {
     int t;
     cin >> t;
     while (t--) {
         int n;
         cin >> n;
-        int a[n] {};
+        ll a[n] {};
         for (int i = 0; i < n; i++) {
-            int k;
+            a[i] = -1;
+        }
+        for (int i = 0; i < n; i++) {
+            ll k;
             cin >> k;
             if(k < 0 || k >= n)
                 continue;
             a[k] = k;
         }
         for (int i = 0; i < n; i++) {
-            if(a[i] == 0 && i != 0) cout << -1 << " ";
-            else cout << a[i] << " ";
+            cout << a[i] << " ";
         }
         cout << endl;
     }

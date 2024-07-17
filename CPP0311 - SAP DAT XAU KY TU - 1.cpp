@@ -10,7 +10,7 @@ void testCase() {
     }
     int n = s.length();
     for (auto it : mp) {
-        if (it.second > n / 2) {
+        if (it.second > (n / 2 + ((n % 2 == 0) ? 0 : 1))) {
             cout << 0 << endl;
             return;
         } 

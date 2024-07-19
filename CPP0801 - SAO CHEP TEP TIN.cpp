@@ -8,6 +8,7 @@ int main()
     out.open("PTIT.out");
     string s;
     while(getline(in, s)) out << s << endl;
+    return 0;
     in.close();
     out.close();
     return 0;

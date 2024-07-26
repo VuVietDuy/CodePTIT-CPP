@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
+
 using namespace std;
 
 #define ll long long
+
 
 int cntkh = 0, cntmh = 0, cnthd = 0;
 
@@ -56,28 +58,32 @@ class HoaDon
 {
 public:
     string mhd, mkh, mmh;
-    ll sl;
+    ll sl, loiNhuan;
     friend istream &operator >> (istream &is, HoaDon &a)
     {
         ++cnthd;
         if(cnthd < 10) a.mhd = "HD00" + to_string(cnthd);
-        else a.mhd = "HD0" + to_string(cnthd);
+        else if(cnthd < 100) a.mhd = "HD0" + to_string(cnthd);
+        else a.mhd = "HD" + to_string(cnthd);
         cin >> a.mkh >> a.mmh >> a.sl;
+        a.loiNhuan = MH[a.mmh].giaBan * a.sl - MH[a.mmh].giaMua * a.sl;
         return is;
     }
     friend ostream &operator << (ostream &os, HoaDon &a)
     {
-        os << a.mhd << ' ' << KH[a.mkh].tenKH << ' ' << KH[a.mkh].add << ' ' << MH[a.mmh].tenMH << ' ' << MH[a.mmh].dvt << ' ' << MH[a.mmh].giaMua << ' ' << MH[a.mmh].giaBan  << ' ' << a.sl << ' ' << MH[a.mmh].giaBan * a.sl << endl;
+        os << a.mhd << ' ' << KH[a.mkh].tenKH << ' ' << KH[a.mkh].add << ' ' << MH[a.mmh].tenMH << ' ' << a.sl << ' ' << MH[a.mmh].giaBan * a.sl << ' ' << a.loiNhuan << endl;
         return os;
     }
 };
 
-bool cmp(HoaDon a, HoaDon b) {
-    return a. < b.;
+bool cmp(HoaDon &a, HoaDon &b)
+{
+    return a.loiNhuan >= b.loiNhuan;
 }
 
-void sapxep(HoaDon dshd, int n) {
-    sort(dshd, dshd + n, cmp);
+void sapxep(HoaDon a[], int n)
+{
+    sort(a, a + n, cmp);
 }
 
 int main(){

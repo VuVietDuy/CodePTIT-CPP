@@ -40,7 +40,7 @@ class Student {
         else if (score > 10) this.score = 10;
         else this.score = score;
     }
-}
+};
 
 int main() {
 

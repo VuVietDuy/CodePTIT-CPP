@@ -8,8 +8,8 @@ using namespace std;
 
 void TestCase()
 {
-    int n, m;
-    cin >> n >> m;
+    int n, m, k;
+    cin >> n >> m >> k;
     int a[n][m];
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
@@ -19,36 +19,37 @@ void TestCase()
     int d = 0;
     int up = 0, down = n - 1;
     int left = 0, right = m - 1;
+    vector<int> res;
     while (1) {
         for (int i = left; i <= right; ++i) {
-            cout << a[up][i] << " ";
+            res.push_back(a[up][i]);
             d++;
         }
         up++;
         if (d == n * m) break;
 
         for (int i = up; i <= down; ++i) {
-            cout << a[i][right] << " ";
+            res.push_back(a[i][right]);
             d++;
         }
         right--;
         if (d == n * m) break;
 
         for (int i = right; i >= left; --i) {
-            cout << a[down][i] << " ";
+            res.push_back(a[down][i]);
             d++;
         }
         down--;
         if (d == n * m) break;
 
         for (int i = down; i >= up; --i) {
-            cout << a[i][left] << " ";
+            res.push_back(a[i][left]);
             d++;
         }
         left++;
         if (d == n * m) break;
     }
-    cout << endl;
+    cout << res[k - 1] << endl;
 }
 
 int main()

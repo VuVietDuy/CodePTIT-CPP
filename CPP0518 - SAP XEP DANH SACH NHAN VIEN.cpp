@@ -16,8 +16,8 @@ void nhap(struct NhanVien& nv) {
     getline(cin, nv.dob);
     getline(cin, nv.address);
     cin >> nv.tax >> nv.date;
-    nv.d = stoi(nv.dob.substr(0, 2));
-    nv.m = stoi(nv.dob.substr(3, 2));
+    nv.m = stoi(nv.dob.substr(0, 2));
+    nv.d = stoi(nv.dob.substr(3, 2));
     nv.y = stoi(nv.dob.substr(6, 4));
     nv.id = to_string(stt);
     while (nv.id.length() < 5) {

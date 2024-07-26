@@ -11,7 +11,9 @@ void testCase() {
     long long res = 0;
     sort(a, a + n);
     for (int i = 0; i < n - 1; i++) {
-        int j = lower_bound(a)
+        auto it = lower_bound(a + i + 1, a + n, k + a[i]);
+        int x = it - (a + i) - 1;
+        res += x;
     }
     cout << res << endl;
 }

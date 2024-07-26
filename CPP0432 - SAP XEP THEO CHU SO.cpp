@@ -1,29 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void cmp(int a, int b) {
-    vector<int> x, y;
-    while (a > 0) {
-        x.push_back(a % 10);
-        a /= 10;
-    }
-    while (b > 0) {
-        y.push_back(b % 10);
-        b /= 10;
-    }
-    int n = x.size(), m = y.size();
-    while ()
+bool cmp(string a, string b)
+{
+    string s1 = a + b;
+    string s2 = b + a;
+    return s1 > s2;
 }
 
+
 void testCase() {
-    int n, k;
-    cin >> n >> k;
-    int a[n];
+    int n;
+    cin >> n;
+    vector<string> a;
     for (int i = 0; i < n; i++) {
-        cin >> a[i];
+        int k;
+        cin >> k;
+        a.push_back(to_string(k));
     }
-    sort(a, a + n);
-    
+    sort(a.begin(), a.end(), cmp);
+    for (int i = 0; i < n; i++) {
+        cout << a[i];
+    }
+    cout << "\n";
 }
 
 int main() {
